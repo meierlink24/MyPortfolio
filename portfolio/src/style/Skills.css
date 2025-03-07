@@ -1,0 +1,42 @@
+.technologies-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0;
+    background-color: #f9f9f9;
+  }
+  
+  .technologies-slider {
+    display: flex;
+    animation: slide 20s linear infinite; /* Adjust animation duration as needed */
+  }
+  
+  .tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 20px; /* Adjust spacing between logos */
+    min-width: 100px; /* Adjust logo width */
+  }
+  
+  .tech-item img {
+    width: 50px; /* Adjust logo size */
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .tech-item p {
+    font-size: 0.9rem;
+    color: #333;
+    text-align: center;
+  }
+  
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%); /* Move by half the width of the slider */
+    }
+  }

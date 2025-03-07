@@ -3,14 +3,14 @@ import './style/Home.css';
 
 const Home = () => {
   const handleDownloadCV = () => {
-    // Check if CV is already stored in local storage
+   
     const cvUrl = localStorage.getItem('cvUrl');
 
     if (cvUrl) {
-      // If CV is stored, trigger download
+  
       const link = document.createElement('a');
       link.href = cvUrl;
-      link.download = 'Stefan_Stevanovic_CV.pdf';
+      link.download = 'cv.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
