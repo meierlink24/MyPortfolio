@@ -1,0 +1,44 @@
+.contact-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .contact-container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .contact-logos {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Adjust spacing between logos */
+  }
+  
+  .contact-logos a,
+  .contact-logos button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .contact-logos img {
+    width: 50px; /* Adjust logo size */
+    height: 50px;
+    transition: transform 0.3s ease;
+  }
+  
+  .contact-logos img:hover {
+    transform: scale(1.1); /* Add a hover effect */
+  }
+  
+  .email-button {
+    background: none;
+    border: none;
+    padding: 0;
+  }
