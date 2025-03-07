@@ -3,7 +3,8 @@
     overflow: hidden;
     position: relative;
     padding: 20px 0;
-    background-color: #f9f9f9;
+    background: rgba(0, 0, 0, 0.13);
+    
   }
   
   .technologies-slider {
@@ -28,7 +29,7 @@
   
   .tech-item p {
     font-size: 0.9rem;
-    color: #333;
+    color: #ffffff;
     text-align: center;
   }
   
