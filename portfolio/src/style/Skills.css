@@ -1,43 +1,122 @@
+/* General Styles */
 .technologies-container {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    padding: 20px 0;
-    background: rgba(0, 0, 0, 0.13);
-    
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 20px 0;
+  background: rgba(0, 0, 0, 0.13);
+}
+
+.technologies-slider {
+  display: flex;
+  animation: slide 20s linear infinite;
+}
+
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 20px; /* Adjust spacing between logos */
+  min-width: 100px; /* Adjust logo width */
+  opacity: 1; /* Ensure it's visible by default */
+  animation: appear 1s ease-in-out both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+.tech-item img {
+  width: 50px; /* Adjust logo size */
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.tech-item p {
+  font-size: 0.9rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Keyframes */
+@keyframes slide {
+  0% {
+    transform: translateX(0);
   }
-  
-  .technologies-slider {
-    display: flex;
-    animation: slide 20s linear infinite; /* Adjust animation duration as needed */
+  100% {
+    transform: translateX(-50%); /* Move by half the width of the slider */
   }
-  
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fallback for browsers that don't support animation-timeline */
+@supports not (animation-timeline: view()) {
   .tech-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 20px; /* Adjust spacing between logos */
-    min-width: 100px; /* Adjust logo width */
+    opacity: 1; /* Ensure content is visible */
+    animation: none; /* Disable scroll animation */
   }
-  
+}
+
+/* Responsive Design for Tablets */
+@media (max-width: 700px) {
+  .tech-item {
+    margin: 0 15px; /* Reduce spacing between logos */
+    min-width: 80px; /* Adjust logo width for smaller screens */
+  }
+
   .tech-item img {
-    width: 50px; /* Adjust logo size */
-    height: 50px;
-    margin-bottom: 10px;
+    width: 40px; /* Adjust logo size for smaller screens */
+    height: 40px;
   }
-  
+
   .tech-item p {
-    font-size: 0.9rem;
-    color: #ffffff;
-    text-align: center;
+    font-size: 0.8rem; /* Adjust font size for smaller screens */
   }
-  
-  @keyframes slide {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%); /* Move by half the width of the slider */
-    }
+}
+
+/* Responsive Design for Small Phones */
+@media (max-width: 500px) {
+  .tech-item {
+    margin: 0 10px; /* Further reduce spacing between logos */
+    min-width: 70px; /* Adjust logo width for even smaller screens */
   }
+
+  .tech-item img {
+    width: 35px; /* Adjust logo size for even smaller screens */
+    height: 35px;
+  }
+
+  .tech-item p {
+    font-size: 0.7rem; /* Adjust font size for even smaller screens */
+  }
+}
+
+/* Responsive Design for Very Small Phones (e.g., 320px) */
+@media (max-width: 320px) {
+  .technologies-slider {
+    animation-duration: 15s; /* Slow down the animation for very small screens */
+  }
+
+  .tech-item {
+    margin: 0 5px; /* Minimal spacing for the smallest screens */
+    min-width: 50px; /* Adjust logo width for the smallest screens */
+  }
+
+  .tech-item img {
+    width: 25px; /* Adjust logo size for the smallest screens */
+    height: 25px;
+  }
+
+  .tech-item p {
+    font-size: 0.6rem; /* Adjust font size for the smallest screens */
+  }
+}
