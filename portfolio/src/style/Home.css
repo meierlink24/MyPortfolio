@@ -1,65 +1,204 @@
+/* General Styles */
 .home {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 60%; /* 60% of the page width */
+  margin: 0 auto; /* Center the content */
   padding: 20px;
   text-align: center;
 }
 
 .home h1 {
-  background: rgb(0,0,0);
-background: linear-gradient(93deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 0%, rgba(24,62,175,1) 00%, rgba(255,0,0,1) 0%, rgba(255,0,0,1) 21%, rgba(255,255,255,1) 66%, rgba(255,255,255,1) 100%);
+  background: linear-gradient(93deg, rgba(0,0,0,1) 0%, rgba(24,62,175,1) 00%, rgba(255,0,0,1) 21%, rgba(255,255,255,1) 66%);
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  -webkit-background-clip: text; 
-  background-clip: text; 
-  -webkit-text-fill-color: transparent; 
-  color: transparent; 
-
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: tracking-in-expand-fwd-bottom 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
   font-size: 2.5rem;
   margin-bottom: 10px;
 }
 
 .subtitle {
+  animation: tracking-in-expand-fwd-bottom 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
   font-size: 1.2rem;
   color: #ffffff;
   margin-bottom: 30px;
 }
 
 .section {
- 
   margin-bottom: 30px;
   text-align: left;
 }
 
-.section h2 { 
+.section h2 {
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255,255,255,.5);
   color: white;
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 10px;
-  
-  opacity: 80%;
+  opacity: 1; /* Ensure it's visible by default */
+  animation: appear 1s ease-in-out both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
 }
 
 .section p {
+  max-width: 80%;
   color: white;
-  font-size: 1rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.2rem;
   font-weight: bold;
   line-height: 1.6;
- 
- 
+  opacity: 1; /* Ensure it's visible by default */
+  animation: appear 1s ease-in-out both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+  padding-bottom: 30px;
 }
 
 .download-btn {
-  padding: 10px 20px;
-  font-size: 1rem;
-  color: #ffffff;
-  opacity: 70%;
-  background-color: #000000;
-  border: none;
-  border-radius: 5px;
+  opacity: 100%;
+  box-shadow: 1px 3px 50px 17px #8a2a21;
+  background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+  background-color: #c62d1f;
+  border-radius: 13px;
+  border: 6px solid #d02718;
+  display: inline-block;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  color: #ffffff;
+  font-family: Courier New;
+  font-size: 17px;
+  padding: 8px 54px;
+  text-decoration: none;
+  text-shadow: 1px 8px 3px #810e05;
+  animation: appear 1s ease-in-out both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
 }
 
-.download-btn:hover {
- opacity: 100%;
+.download-btn:hover{
+ color: rgba(0, 0, 0, 0.616);}
+
+.download-btn:active {
+  position: relative;
+  top: 1px;
+}
+
+/* Keyframes */
+@keyframes tracking-in-expand-fwd-bottom {
+  0% {
+    letter-spacing: -0.5em;
+    transform: translateZ(-700px) translateY(500px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateZ(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fallback for browsers that don't support animation-timeline */
+@supports not (animation-timeline: view()) {
+  .section h2,
+  .section p,
+  .download-btn {
+    opacity: 1; /* Ensure content is visible */
+    animation: none; /* Disable scroll animation */
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 700px) {
+  .home {
+    max-width: 80%; /* Adjust for smaller screens */
+  }
+
+  .home h1 {
+    font-size: 2rem; /* Smaller font size for smaller screens */
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
+  }
+
+  .section p {
+    font-size: 0.9rem;
+  }
+
+  .download-btn {
+    font-size: 14px;
+    padding: 6px 40px;
+  }
+}
+
+@media (max-width: 500px) {
+  .home {
+    max-width: 90%; /* Adjust for even smaller screens */
+  }
+
+  .home h1 {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .section h2 {
+    font-size: 1.3rem;
+  }
+
+  .section p {
+    font-size: 0.8rem;
+  }
+
+  .download-btn {
+    font-size: 12px;
+    padding: 5px 30px;
+  }
+}
+
+@media (max-width: 320px) {
+  .home {
+    max-width: 95%; /* Adjust for the smallest screens */
+  }
+
+  .home h1 {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.8rem;
+  }
+
+  .section h2 {
+    font-size: 1.1rem;
+  }
+
+  .section p {
+    font-size: 0.7rem;
+  }
+
+  .download-btn {
+    font-size: 10px;
+    padding: 4px 20px;
+  }
 }
