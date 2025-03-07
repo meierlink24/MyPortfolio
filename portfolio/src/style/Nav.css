@@ -3,20 +3,22 @@
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     
   }
   
   .horizontal-nav ul li a {
     color: white;
+    opacity: 80%;
+    font-size: 1.2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding: 14px 20px;
     text-decoration: none;
     display: block;
   }
   
   .horizontal-nav ul li a:hover {
-    background-color: #ffffff;
-    color: red;
+  opacity: 100%;
   }
   
   .hamburger-menu {
@@ -25,7 +27,7 @@
   
   .hamburger-menu button {
     
-   background: -webkit-linear-gradient(#eee, #333);
+   background: -webkit-linear-gradient(#f3f3f3, #e60000);
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
     border: none;
@@ -38,7 +40,8 @@
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #333;
+    max-width: 40%;
+    background-color: #1b000067;
     width: 100%;
   }
   
@@ -49,12 +52,18 @@
   }
   
   .vertical-nav ul li a {
+   
+    
     color: white;
+    font-size: 1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding: 14px 20px;
     text-decoration: none;
     display: block;
+    transition:  0.9    ease ;
   }
   
   .vertical-nav ul li a:hover {
-    background-color: #575757;
+   opacity: 60%;
+    
   }
